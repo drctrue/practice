@@ -12,20 +12,12 @@ class Login extends Controller {
         $lastname = $_POST['lastname'];
         $email = $_POST['email'];
         $password = md5($_POST['password']);
-//        $get_start = $_POST['submit'];
 
         if(isset($firstname) && isset($lastname) && isset($email) && isset($password)) {
-            $this->model->addUser($firstname);
-//            if(!$this->model->addUser($firstname)) {
-//                throw new Exception('Some errors');
-//            }
-//
-//            try {
-//                $this->model->addUser($firstname);
-//            } catch (Exception $e) {
-//                echo 'Exception: ',  $e->getMessage(), "\n";
-//            }
 
+            if(!$this->model->addUser($firstname, $lastname, $email, $password)) {
+                throw new Exception('Some errors');
+            }
         }
 
         $this->view->render('login');

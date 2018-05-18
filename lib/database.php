@@ -1,18 +1,17 @@
 <?php
 class Database{
 //    public $db;
-    public $pdo;
+    protected $pdo;
     public function __construct(){
 
-        $dsn = "mysql:host=localhost;port=3306;dbname=test_db;charset=utf8;";
-//        $this->db = mysqli_connect(HOST,USER,PASSWORD,DATABASE);
+        $dsn = "mysql:host=localhost;port=3306;dbname=pdo_test;charset=utf8;";
         $options = [
             PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
             PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
         ];
 
         try {
-            $this->pdo = new PDO($dsn, 'root', '', $options);
+            $this->pdo = new PDO($dsn, 'root', 'root', $options);
         } catch (PDOException $e) {
             echo 'Connection error: ' . $e->getMessage();
         }
@@ -20,10 +19,14 @@ class Database{
         return $this;
     }
 
-    public function execute($sql) {
+//    public function addRecord($table, array $values, array $params) {
+//        "INSERT INTO `users` (`firstname`) VALUES (':firstname')";
+//    }
+
+    public function execute($sql, $params) {
         $sth = $this->pdo->prepare($sql);
 
-        return $sth->execute();
+        return $sth->execute($params);
     }
 
     public function query($sql) {
