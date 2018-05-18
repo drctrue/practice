@@ -15,9 +15,14 @@ class Login extends Controller {
 
         if(isset($firstname) && isset($lastname) && isset($email) && isset($password)) {
 
-            if(!$this->model->addUser($firstname, $lastname, $email, $password)) {
-                throw new Exception('Some errors');
+            if(! $this->model->isExistEmail($email)) {
+                if(!$this->model->addUser($firstname, $lastname, $email, $password)) {
+                    throw new Exception('Some errors');
+                }
+            } else {
+                echo 'Error email';
             }
+
         }
 
         $this->view->render('login');

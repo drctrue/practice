@@ -10,4 +10,8 @@ class ModelLogin extends Database {
     public function getUsers() {
         return $this->query("SELECT * FROM `users`");
     }
+
+    public function isExistEmail($email) {
+        return $this->query("SELECT * FROM `users` WHERE `email` = :email", [':email' => $email]);
+    }
 }

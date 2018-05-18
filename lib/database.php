@@ -29,11 +29,11 @@ class Database{
         return $sth->execute($params);
     }
 
-    public function query($sql) {
+    public function query($sql, $params = false) {
 
         $sth = $this->pdo->prepare($sql);
 
-        $sth->execute();
+        $sth->execute($params);
 
         $result = $sth->fetchAll(PDO::FETCH_ASSOC);
 
