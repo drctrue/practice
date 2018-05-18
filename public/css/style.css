@@ -1,0 +1,23 @@
+body {
+    background: #f8f9fa;
+}
+
+#header {
+    padding: 20px;
+    background: #53b2fc;
+}
+
+#content {
+    background: #f8f9fa;
+    padding: 20px;
+}
+
+#reg {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+
+footer {
+    background: #f8f9fa;
+}

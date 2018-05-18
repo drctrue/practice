@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpcs version="2.9.1">
+<file name="/var/www/nginx/controller/files.php" errors="5" warnings="3" fixable="1">
+ <error line="2" column="1" source="PEAR.Commenting.FileComment.Missing" severity="5" fixable="0">Missing file doc comment</error>
+ <error line="3" column="1" source="PEAR.Commenting.ClassComment.Missing" severity="5" fixable="0">Missing class doc comment</error>
+ <error line="5" column="12" source="PEAR.Commenting.FunctionComment.Missing" severity="5" fixable="0">Missing function doc comment</error>
+ <error line="10" column="12" source="PEAR.Commenting.FunctionComment.Missing" severity="5" fixable="0">Missing function doc comment</error>
+ <warning line="25" column="86" source="Generic.Files.LineLength.TooLong" severity="5" fixable="0">Line exceeds 85 characters; contains 86 characters</warning>
+ <error line="27" column="20" source="PEAR.WhiteSpace.ScopeIndent.Incorrect" severity="5" fixable="1">Line indented incorrectly; expected at least 20 spaces, found 19</error>
+ <warning line="33" column="221" source="Generic.Files.LineLength.TooLong" severity="5" fixable="0">Line exceeds 85 characters; contains 221 characters</warning>
+ <warning line="50" column="96" source="Generic.Files.LineLength.TooLong" severity="5" fixable="0">Line exceeds 85 characters; contains 96 characters</warning>
+</file>
+</phpcs>
+
