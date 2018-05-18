@@ -8,9 +8,9 @@ class Login extends Controller {
 
     public function index() {
 
-        $firstname = $_POST['firstname'];
-        $lastname = $_POST['lastname'];
-        $email = $_POST['email'];
+        $firstname = $this->sanitize($_POST['firstname']);
+        $lastname = $this->sanitize($_POST['lastname']);
+        $email = $this->sanitize($_POST['email']);
         $password = md5($_POST['password']);
 
         if(isset($firstname) && isset($lastname) && isset($email) && isset($password)) {
@@ -26,5 +26,11 @@ class Login extends Controller {
         }
 
         $this->view->render('login');
+    }
+
+    public function sanitize($var) {
+        $var = stripcslashes($var);
+        $var = strip_tags($var);
+        return $var;
     }
 }
